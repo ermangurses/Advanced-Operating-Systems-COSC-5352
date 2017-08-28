@@ -42,23 +42,23 @@ void processOne(MPI_Status stat, char n[]);
 //
 // Value Parameters
 // ----------------
-// int         argc            It counts how many argument is entered 
-//                             in command line  
+// int        argc            It counts how many argument is entered 
+//                            in command line  
 //
 // Reference Parameters
 // --------------------
-// char     *argv[]            Pointers of Arrays that keeps command 
-//                             line parameters 
+// char       *argv[]         Pointers of Arrays that keeps command 
+//                            line parameters 
 // 
-// FILE     *cfPtr             File pointer 
+// FILE       *cfPtr          File pointer 
 //
 // Local Variables
 // ---------------
 // rank       int                
 // p          int        
-// n[]        int              It creates enough buffer size.
+// n[]        int             It creates enough buffer size.
 //                    
-// stat       MPI_Status       It keep status information.
+// stat       MPI_Status      It keep status information.
 //
 // 
 //*******************************************************************
@@ -106,33 +106,33 @@ int main(int argc, char* argv[])
 //
 // Value Parameters
 // ----------------
-// stat            MPI_Status   It keep status information.
+// stat           MPI_Status    It keep status information.
 // 
 //
 // Reference Parameters
 // --------------------
 // n[]            int           It points the buffer.  
-// FILE            *cfPtr       File pointer       
+// FILE           *cfPtr        File pointer       
 //
 // Local Variables
 // ---------------
-// limit        const int       It determinates number of send 
+// limit          const int     It determinates number of send 
 //                              and receive iteration  for the fixed  
 //                              size of package.
 //
-// total        double          Total amount of time for the sends 
+// total          double        Total amount of time for the sends 
 //                              and receives(10 times) for the 
 //                              message of length "n".
 //                                
 //
-// average      double          Average message passing time for 
+// average        double        Average message passing time for 
 //                              a message of length "n".
 //
-// elapsed_time double          Total time of the one send and one 
+// elapsed_time   double        Total time of the one send and one 
 //                              reveive.
 //
-// i            int             Loop Iteration Variable.
-// m            int             Loop Iteration Variable.
+// i              int           Loop Iteration Variable.
+// m              int           Loop Iteration Variable.
 //*******************************************************************
 void processZero( FILE *cfPtr, MPI_Status stat, char n[])
 {
@@ -151,7 +151,7 @@ void processZero( FILE *cfPtr, MPI_Status stat, char n[])
     }                   
     else
     {     
-        // increase message length for each iteration
+        // Increase message length for each iteration
          for(m = 0; m <= SIZE; m+=32768)
          {                
             i=0;          
