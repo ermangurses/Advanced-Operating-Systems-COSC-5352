@@ -157,7 +157,7 @@ int main(int argc, char* argv[])
                 }   
             }      
             // Check whether the game is done or not.
-            if( done == 0)
+            if(done == 0)
             {    
                 // Check whether the number of active processes is even
                 if(active % 2 == 0)
@@ -320,45 +320,37 @@ int even(int rank, int i, int n[], int TAG, MPI_Status stat, int p )
             // Gererate Random Number 
             wall_Clock = MPI_Wtime();
             wall_Clock = wall_Clock * TIMEPRECISION;
-            seed = (unsigned int)wall_Clock;
-                    
+            seed = (unsigned int)wall_Clock;             
             myDecision = 1+seed%3;
                         
             // Get desicison from opposite side            
             MPI_Recv(&decision,1,MPI_INT,i ,TAG,MPI_COMM_WORLD,&stat);
             
-
             // Determine who wins
             // In case of tie, do whole operation again until one side wins
             if(myDecision == decision)
             {        
                 result = -1;
                 // In case of tie, send special message
-                MPI_Send(&result,1,MPI_INT,i ,TAG,MPI_COMM_WORLD);
-            
+                MPI_Send(&result,1,MPI_INT,i ,TAG,MPI_COMM_WORLD);            
             }
             else if( myDecision == ROCK && decision == PAPER)
             {
-
                 printf("Process %d wins over process %d\n",i, rank);                     
                 result = 1;
                 MPI_Send(&result,1,MPI_INT,i ,TAG,MPI_COMM_WORLD);
-
             }
             else if (myDecision == PAPER && decision == ROCK)
             {
-
-                printf("Process %d wins over process %d\n",rank, i );     
+                printf("Process %d wins over process %d\n",rank, i);     
                 result = 0;
                 MPI_Send(&result,1,MPI_INT,i ,TAG,MPI_COMM_WORLD);
-
             }
             else if (myDecision == ROCK && decision == SCISSORS)
             {
                 printf("Process %d wins over process %d\n",rank, i); 
                 result = 0;
                 MPI_Send(&result,1,MPI_INT,i ,TAG,MPI_COMM_WORLD);
-        
             }
             else if (myDecision == SCISSORS && decision == ROCK)
             {
@@ -371,35 +363,25 @@ int even(int rank, int i, int n[], int TAG, MPI_Status stat, int p )
                 printf("Process %d wins over process %d\n", i ,rank);
                 result = 1;        
                 MPI_Send(&result,1,MPI_INT,i ,TAG,MPI_COMM_WORLD);
-    
             }
             else if (myDecision == SCISSORS && decision == PAPER)
             {
-                printf("Process %d wins over process %d\n",rank, i );                     
+                printf("Process %d wins over process %d\n",rank, i);                     
                 result = 0;
                 MPI_Send(&result,1,MPI_INT,i,TAG,MPI_COMM_WORLD);
-            }
-            
-            
+            }          
         } while(result == -1);
-        
 
         // Check Result
         if(result  == 0)
         {
-            
-            return 1;
-            
+            return 1;    
         }
         else
         {
-        
             return 0;
         }
-
 }
-
-
 //********************************************************************
 // odd Function
 //

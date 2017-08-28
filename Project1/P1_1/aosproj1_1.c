@@ -158,24 +158,24 @@ void processZero( FILE *cfPtr, MPI_Status stat, char n[])
             // 
             while(i < limit)
             {        
-                    // Record current time.
-                    elapsed_time=-MPI_Wtime();
+                // Record current time.
+                elapsed_time=-MPI_Wtime();
                     
-                    // Send data to process one
-                    MPI_Send(n,m,MPI_CHAR,1,0,MPI_COMM_WORLD);
+                // Send data to process one
+                MPI_Send(n,m,MPI_CHAR,1,0,MPI_COMM_WORLD);
         
-                    // Receive data from process one
-                    MPI_Recv(n, m, MPI_CHAR, 1, 0, MPI_COMM_WORLD,&stat);
+                // Receive data from process one
+                MPI_Recv(n, m, MPI_CHAR, 1, 0, MPI_COMM_WORLD,&stat);
                     
-                    // Estimate elapsed time.
-                    elapsed_time+=MPI_Wtime();
+                // Estimate elapsed time.
+                elapsed_time+=MPI_Wtime();
         
-                    // Estimate average time.
-                    average=elapsed_time/2;
+                // Estimate average time.
+                average=elapsed_time/2;
                     
-                    // Estimate total time.
-                    total=total+average;
-                    i++;
+                // Estimate total time.
+                total=total+average;
+                i++;
             }//while
          
             // Write the data into file
