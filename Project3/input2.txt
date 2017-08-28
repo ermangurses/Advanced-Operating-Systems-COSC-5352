@@ -1,0 +1,8 @@
+3
+exec 1
+exec 2
+send 1 2 "ERMAN"
+send 3 2 "ERMAN"
+exec 3
+send 2 1 "ERMAN"
+end
