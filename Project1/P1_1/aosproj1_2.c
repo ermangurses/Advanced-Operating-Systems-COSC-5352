@@ -84,10 +84,8 @@ int even(int rank, int i, int n[], int TAG, MPI_Status stat, int p);
 //                                which processes iun the game 
 // TAG       int                  It keeps MPI_TAG information
 //*******************************************************************
-
 int main(int argc, char* argv[])
 {
-
     int rank,
         p,
         find,
@@ -245,7 +243,6 @@ int main(int argc, char* argv[])
                                     find=1;
                                 }
                             }    
-                            
                             // Function Call
                             result = odd(rank,i,n,TAG,stat,p);    
                         }
@@ -300,14 +297,14 @@ int main(int argc, char* argv[])
 // myDecision  const int   It determinates number of send 
 //                         and receive iteration  for the fixed  
 //                         size of package.
-// decision    int         It keeps decision of process
+// decision     int        It keeps decision of process
 //
-// result      int         After the game finished between pairs
+// result       int        After the game finished between pairs
 //                         it keeps result of the game
-// seed        int         Random number for the decisions.
+// seed         int        Random number for the decisions.
 //
-// j           int         Loop Iteration Variable.
-// wall_Clock  double      It is beeing used to produce random number
+// j            int        Loop Iteration Variable.
+// wall_Clock   double     It is beeing used to produce random number
 //*******************************************************************
 int even(int rank, int i, int n[], int TAG, MPI_Status stat, int p )
 {    

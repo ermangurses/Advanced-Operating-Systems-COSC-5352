@@ -85,18 +85,13 @@ int main(int argc, char* argv[])
     if(rank == 0) 
     {    
        processZero(cfPtr,stat,n);
-    
     }
     else
     { 
       processOne(stat,n);
-        
-    }// else    
-            
+    }// else               
     MPI_Finalize();
 }
-
-
 //********************************************************************
 // processZero Function
 //
@@ -141,16 +136,14 @@ int main(int argc, char* argv[])
 //*******************************************************************
 void processZero( FILE *cfPtr, MPI_Status stat, char n[])
 {
-    const int limit        =10;
-    double       total        =0,
-              average      =0,
-              elapsed_time =0;
+    const int limit        = 10;
+    double    total        = 0,
+              average      = 0,
+              elapsed_time = 0;
     
     int       i,
               m;
-    
     printf("n\t\t  T\n");
-  
     // Open and check file to write elapsed time information.
     if((cfPtr=fopen("aosproj1_1.txt","w"))==NULL)
     {
@@ -182,9 +175,7 @@ void processZero( FILE *cfPtr, MPI_Status stat, char n[])
                     
                     // Estimate total time.
                     total=total+average;
-            
                     i++;
-
             }//while
          
             // Write the data into file
@@ -193,13 +184,10 @@ void processZero( FILE *cfPtr, MPI_Status stat, char n[])
             // Write the data onto screen
             printf("%d\t\t %f\n",m,total/10);
             
-            total=0;                
-            
+            total = 0;                         
         }// for    
         fclose(cfPtr);
-
     }// else
-
 }
 
 
@@ -236,21 +224,17 @@ void processOne(MPI_Status stat, char n[])
 {
     const int limit=10;
     int j,
-        m;
-    
+        m;   
     for(m = 0; m <= SIZE; m+=32768)
     {
         j = 0;     
         while(j < limit)
         {
             // Receive data from process zero
-            MPI_Recv(n,m,MPI_CHAR,0,0,MPI_COMM_WORLD,&stat);
-            
+            MPI_Recv(n,m,MPI_CHAR,0,0,MPI_COMM_WORLD,&stat);         
             // Send data to process one
-            MPI_Send(n,m,MPI_CHAR,0,0,MPI_COMM_WORLD);
-        
+            MPI_Send(n,m,MPI_CHAR,0,0,MPI_COMM_WORLD); 
             j++;
         } //while
-    
     }//for
 }
