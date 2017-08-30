@@ -21,11 +21,8 @@
 // Function Prototypes
 //
 //********************************************************************
-  
  void doublyTokenRing ( int nprocs, int rank, int rounds, 
                      MPI_Status status, MPI_Request request, int tag);
-  
-  
 //********************************************************************
 //
 // main Function
@@ -90,7 +87,6 @@ int main(int argc, char *argv[])
     MPI_Finalize();
     return 0;
 }
-
 //********************************************************************
 //
 // doublyTokenRing  Function
@@ -145,8 +141,7 @@ void doublyTokenRing ( int nprocs, int rank, int rounds,
     // Calculate left and right neighbour
     right = (rank + 1) % nprocs;
     left  = (nprocs + rank - 1) % nprocs;
-
-    
+  
     // Calculate check points
     check = nprocs*rounds;
    
@@ -171,13 +166,10 @@ void doublyTokenRing ( int nprocs, int rank, int rounds,
         MPI_Isend(&tokenCCV, 1, MPI_INT, left, tag, MPI_COMM_WORLD, &request);
         // Wait for the send operation complete        
         MPI_Wait(&request, &status);
-    }
-   
-   
+    }  
    // loop for rounds times 2
    for(i = 0; i < rounds * 2; i++)
    {
-
         // Wait for reveive token from any resource and any tag
         MPI_Irecv(&token, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &request);        
         // Wait to compete receive operation
@@ -191,7 +183,6 @@ void doublyTokenRing ( int nprocs, int rank, int rounds,
             printf("Rank %3d: received  a token from rank %3d. Token is:%9d\n",rank,left,token);
             // Increase token value by 1
             token++;
-            
             
             // In order to prove the cycles are independent
             // It is up to user to use it, 
@@ -227,8 +218,7 @@ void doublyTokenRing ( int nprocs, int rank, int rounds,
                 // Send the token to left neighbour
                 MPI_Isend(&token, 1, MPI_INT, left, tag, MPI_COMM_WORLD,&request);                                
                 // Wait for the send operation 
-                MPI_Wait(&request, &status);
-                
+                MPI_Wait(&request, &status);               
             }
         }        
     }
