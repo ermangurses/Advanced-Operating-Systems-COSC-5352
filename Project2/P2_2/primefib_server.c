@@ -28,17 +28,17 @@
 //
 // Return Value
 // ------------
-// int         If it is prime number return 1
-//             else                  return 0
+// int                    If it is prime number return 1
+//                        else                  return 0
 //
 //
 // Value Parameters
 // ----------------
-// n int       It is sent value by prime_1_svc function
+// n       int            It is sent value by prime_1_svc function
 //
 // Reference Parameters
 // --------------------
-//	N/A
+// N/A
 //      	
 //
 // Local Variables
@@ -98,25 +98,25 @@ int isPrime (int n){
 //
 // Return Value
 // ------------
-//  int *                  The address of fibonacci number
+// int *                The address of fibonacci number
 //
 //
 // Value Parameters
 // ----------------
-//	N/A
+// N/A
 //
 // Reference Parameters
 // --------------------
-//  *argp       	   int
-//  *rqstp      	   struct svc_req
+// *argp       	 int
+// *rqstp      	 struct svc_req
 //
 // Local Variables
 // ---------------
-//  result static int  	n th prime number that is found.
-//  number        int	n th prime number that is found.
-//  counter	  int	counter to check n th information
-//  i             int	Loop Iteration Variable.
-//  n             int   n th information
+// result static int    n th prime number that is found.
+// number        int    n th prime number that is found.
+// counter       int    counter to check n th information
+// i             int    Loop Iteration Variable.
+// n             int    n th information
 ********************************************************************/
 int * prime_1_svc(int *argp, struct svc_req *rqstp){
 
@@ -151,17 +151,17 @@ int * prime_1_svc(int *argp, struct svc_req *rqstp){
 //
 // Return Value
 // ------------
-// long int *                   Address of fibonacci number
+// long int *           Address of fibonacci number
 //
 //
 // Value Parameters
 // ----------------
-//	N/A
+// N/A
 //
 // Reference Parameters
 // --------------------
-//  *argp    int
-//  *rqstp   struct svc_req
+// *argp    int
+// *rqstp   struct svc_req
 //
 // Local Variables
 // ---------------
