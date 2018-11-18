@@ -53,12 +53,11 @@ bool openInputFile(ifstream & inFile, char * file);
 // --------------------
 // *argv[]  char         The array of pointers that keeps 
 //                       command line parameters
-//
 // 
 // Local Variables
 // ---------------
 // nprocs   int          The number of processes 
-// rank	    int	         Rank Number
+// rank     int          Rank Number
 // status   MPI_status   Status information	
 //*******************************************************************
 int main(int argc, char *argv[]){
