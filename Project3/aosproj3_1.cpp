@@ -31,7 +31,6 @@ using namespace std;
 
 void manager(MPI_Status status, char * argv[], int nprocs);	
 void workers(MPI_Status status, int rank, int nprocs);
-			 
 bool openInputFile(ifstream & inFile, char * file);
 //********************************************************************
 //
@@ -47,13 +46,13 @@ bool openInputFile(ifstream & inFile, char * file);
 //
 // Value Parameters
 // ----------------
-// int  argc      It counts how many argument is entered 
-//                in command line  
+// argc     int          It counts how many argument is entered 
+//                       in command line  
 //
 // Reference Parameters
 // --------------------
-// char *argv[]   The array of pointers that keeps command line 
-//                parameters
+// *argv[]  char         The array of pointers that keeps 
+//                       command line parameters
 //
 // 
 // Local Variables
@@ -64,27 +63,23 @@ bool openInputFile(ifstream & inFile, char * file);
 //*******************************************************************
 int main(int argc, char *argv[]){
 	
-	MPI_Status status; 
-	int nprocs,
-	    rank;
+    MPI_Status status;
+    int nprocs,
+    rank;
 			
-	MPI_Init(&argc, &argv);
-        MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
-        MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-	
-	 
-	
-	if(rank == 0)
-	{
-		// Function Call
-		 manager(status,argv,nprocs);	
-	} else {
-		// Function Call
-		workers(status,rank,nprocs);	
-	}
-	
-	MPI_Finalize();
-	return 0;
+    MPI_Init(&argc, &argv);
+    MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+    if(rank == 0){
+        // Function Call
+        manager(status,argv,nprocs);
+    } else {
+        // Function Call
+        workers(status,rank,nprocs);
+    }
+    MPI_Finalize();
+  return 0;
 }
 
 //********************************************************************
@@ -100,31 +95,31 @@ int main(int argc, char *argv[]){
 //
 // Value Parameters
 // ----------------
-// status	          MPI_status Status information	
-// nprocs	                 int The number of processes 
+// status	         PI_status  The status information	
+// nprocs	               int  The number of processes 
 // Reference  Parameters
 // --------------------
-// *argv[]                      char Array of pointers that keeps 
+// *argv[]                     char  Array of pointers that keeps 
 //                                   command line parameters 
 // Local Variables
 // ---------------
-// inFile                   ifstream File pointer
-// eventSourceInteger            int Source of event	
-// eventLineLenght               int Entire line's lenght		
-// * clock1                      int Actual Clock info
-// eventLine                  string Entire event line that 
+// inFile                  ifstream  File pointer
+// eventSourceInteger           int  Source of event	
+// eventLineLenght              int  Entire line's lenght		
+// * clock1                     int  Actual Clock info
+// eventLine                 string  Entire event line that 
 //                                   is read from file
-// numberOfProcesses	      string The number of worker
-// completed                    char The key message to check 
+// numberOfProcesses	     string  The number of worker
+// completed                   char  The key message to check 
 //                                   operations in order
-// endString                  string The key string check end of file
-// * eventLineCharArrayParsing  char The char array that is 
+// endString                 string  The key string check end of file
+// * eventLineCharArrayParsing char  The char array that is 
 //                                   parsed into tokens
-// * file                       char To keep file name that is 
+// * file                      char  To keep file name that is 
 //                                   entered from command line 
-// * eventLineCharArray         char To keep entire line
-// * eventTypeCharArray         char To keep event type
-// * eventSourceCharArray       char To keep event source info
+// * eventLineCharArray        char  To keep entire line
+// * eventTypeCharArray        char  To keep event type
+// * eventSourceCharArray      char  To keep event source info
 //*******************************************************************
 void manager(MPI_Status status, char * argv[],int nprocs){
 
