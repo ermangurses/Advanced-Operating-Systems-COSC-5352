@@ -50,27 +50,27 @@
 //
 // Local Variables
 // ---------------
-//	*clnt         CLIENT  Host string 
-//	*result_1     int     pointer that keeps result 1 
-//                            (n th prime number)
+// *clnt         CLIENT  Host string 
+// *result_1     int     pointer that keeps result 1 
+//                       (n th prime number)
 //
-//	prime_1_arg   int     number th info from user
+// prime_1_arg   int     number th info from user
 //
-//	*result_2     int     pointer that keeps result 2
-//                            (n th fibonacci number)
+// *result_2     int     pointer that keeps result 2
+//                       (n th fibonacci number)
 //
-//      fibo_1_arg    int     number th info from user
+// fibo_1_arg    int     number th info from user
 //
-//      tim1          struct timeval  
-//                    struct in order to keep time value
-//                    in second or micro seconds or both
+// tim1          struct timeval  
+//               struct in order to keep time value
+//               in second or micro seconds or both
 //
-//      tim2          struct timeval 
-//                    struct in order to keep time value
-//                    in second or micro seconds or both
+// tim2          struct timeval 
+//               struct in order to keep time value
+//               in second or micro seconds or both
 //
-//	t1           int        time by micro second 
-//	t2           int        time by micro second 
+// t1            int        time by micro second 
+// t2            int        time by micro second 
 ********************************************************************/
 void primefib_prog_1(char *host, int numberTh){
 
@@ -166,7 +166,7 @@ void primefib_prog_1(char *host, int numberTh){
 //
 // Local Variables
 // ---------------
-// host                  Char server host
+//  host                  Char server host
 //
 ********************************************************************/
 int
