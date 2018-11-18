@@ -46,17 +46,17 @@ bool openInputFile(ifstream & inFile, char * file);
 //
 // Value Parameters
 // ----------------
-// int    argc           It counts how many argument is entered 
+// int          argc     It counts how many argument is entered 
 //                       in command line  
 //
 // Reference Parameters
 // --------------------
-// char 	*argv[]  Array of pointer that keeps command 
+// char         *argv[]  Array of pointer that keeps command 
 //                       line parameters 
 // Local Variables
 // ---------------
-// nprocs       int	    The number of processes 
-// rank         int 	    The rank Number
+// nprocs       int         The number of processes 
+// rank         int         The rank Number
 // status       MPI_status  The status information	
 //*******************************************************************
 int main(int argc, char *argv[]){
@@ -104,7 +104,7 @@ int main(int argc, char *argv[]){
 // ---------------
 // inFile             ifstream    File pointer
 // source             int         Source of event	
-// destination	      int         Destination of event
+// destination        int         Destination of event
 // eventLineString    string      Entire event line 
 //                                that is read from file
 // completed          char        Key message to check operations in 
@@ -123,13 +123,13 @@ int main(int argc, char *argv[]){
 //                                child node
 // flag               int         To keep information about whether 
 //                                there is a deadlock or not.
-// counter            int 	  Counter fot column
+// counter            int         Counter fot column
 // **adjacencyMatrix  int[][]     That represents dependency graph
 // probe              int[]       It keeps probe info that contains 
 //                                ID of process that blocked, ID of 
 //                                process sending message, ID of 
 //                                process that receiving message.
-// eventLineCString   char[]	  C string version of eventLineString
+// eventLineCString   char[]      C string version of eventLineString
 //
 //*******************************************************************
 void manager(MPI_Status status, char * argv[],int nprocs){
