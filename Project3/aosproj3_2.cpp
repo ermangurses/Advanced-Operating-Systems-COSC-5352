@@ -116,7 +116,7 @@ int main(int argc, char *argv[]){
 //                                          end of file
 // * eventLineCharArrayParsing  char        The char array that is 
 //                                          parsed into tokens
-// * file                       char	    To keep file name that is 
+// * file                       char         To keep file name that is 
 //                                          entered from command line 
 // * eventLineCharArray         char        To keep entire line
 // * eventTypeCharArray         char        To keep event type
