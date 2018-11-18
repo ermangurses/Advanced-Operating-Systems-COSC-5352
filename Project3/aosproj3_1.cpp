@@ -100,32 +100,31 @@ int main(int argc, char *argv[]){
 //
 // Value Parameters
 // ----------------
-// status	  MPI_status    Status information	
-// nprocs	  int	        The number of processes 
+// status	          MPI_status Status information	
+// nprocs	                 int The number of processes 
 // Reference  Parameters
 // --------------------
-// *argv[]        char          Array of pointers that keeps 
-//                              command line parameters 
+// *argv[]                      char Array of pointers that keeps 
+//                                   command line parameters 
 // Local Variables
 // ---------------
-// inFile                        ifstream File pointer
-// eventSourceInteger            int      Source of event	
-// eventLineLenght               int      Entire line's lenght		
-// * clock1                      int      Actual Clock info
-// eventLine                     string   Entire event line that 
-//                                        is read from file
-// numberOfProcesses	         string   The number of worker
-// completed                     char     The key message to check 
-//                                        operations in order
-// endString                     string	  The key string check end 
-//                                        of file
-// * eventLineCharArrayParsing   char     The char array that is 
-//                                        parsed into tokens
-// * file                        char     To keep file name that is 
-//                                        entered from command line 
-// * eventLineCharArray          char	  To keep entire line
-// * eventTypeCharArray          char	  To keep event type
-// * eventSourceCharArray        char     To keep event source info
+// inFile                   ifstream File pointer
+// eventSourceInteger            int Source of event	
+// eventLineLenght               int Entire line's lenght		
+// * clock1                      int Actual Clock info
+// eventLine                  string Entire event line that 
+//                                   is read from file
+// numberOfProcesses	      string The number of worker
+// completed                    char The key message to check 
+//                                   operations in order
+// endString                  string The key string check end of file
+// * eventLineCharArrayParsing  char The char array that is 
+//                                   parsed into tokens
+// * file                       char To keep file name that is 
+//                                   entered from command line 
+// * eventLineCharArray         char To keep entire line
+// * eventTypeCharArray         char To keep event type
+// * eventSourceCharArray       char To keep event source info
 //*******************************************************************
 void manager(MPI_Status status, char * argv[],int nprocs){
 
@@ -216,9 +215,9 @@ void manager(MPI_Status status, char * argv[],int nprocs){
 //
 // Value Parameters
 // ----------------
-// status	  MPI_status  The status information	
-// nprocs	  int	      The number of processes 
-// rank 	  int 	      To keep process rank information
+// status                MPI_status  The status information	
+// nprocs	                int  The number of processes 
+// rank                         int  To keep process rank information
 //
 // Reference  Parameters
 // --------------------
@@ -371,7 +370,7 @@ void workers(MPI_Status status, int rank, int nprocs){
 //
 // Value Parameters
 // ----------------
-//	void
+// void
 //
 // Reference Parameters
 // --------------------
