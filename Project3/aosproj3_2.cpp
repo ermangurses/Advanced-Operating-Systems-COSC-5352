@@ -57,7 +57,7 @@ bool openInputFile(ifstream & inFile, char * file);
 // ---------------
 // nprocs               int             The number of processes 
 // rank                 int             The rank Number
-// status		MPI_status  	The status information	
+// status		MPI_status      The status information	
 //*******************************************************************
 int main(int argc, char *argv[]){
 
@@ -103,7 +103,7 @@ int main(int argc, char *argv[]){
 // Local Variables
 // ---------------
 // inFile                       ifstream    File pointer
-// eventSourceInteger	        int         Source of event	
+// eventSourceInteger           int         Source of event	
 // eventLineLenght              int         Entire line's lenght		
 // * clock1                     int         Actual Clock info
 // eventLine                    string      Entire event line that is 
@@ -114,7 +114,7 @@ int main(int argc, char *argv[]){
 //                                          operations in order
 // endString                    string      Key string check 
 //                                          end of file
-// * eventLineCharArrayParsing	char        The char array that is 
+// * eventLineCharArrayParsing  char        The char array that is 
 //                                          parsed into tokens
 // * file                       char	    To keep file name that is 
 //                                          entered from command line 
@@ -256,8 +256,8 @@ void manager(MPI_Status status, char * argv[],int nprocs){
 // * eventLineCharArray         char To keeps entire line
 // * eventTypeCharArray         char To keeps event type
 // * eventSourceCharArray       char To keeps event source info
-// * eventDestinationCharArray	char To keeps event destination info
-// * eventMessageCharArray	char To keeps actual message
+// * eventDestinationCharArray  char To keeps event destination info
+// * eventMessageCharArray      char To keeps actual message
 // isMessageExist            boolean The flag for while loop
 //*******************************************************************
 void workers(MPI_Status status, int rank, int nprocs){
@@ -422,12 +422,12 @@ void workers(MPI_Status status, int rank, int nprocs){
 //
 // Value Parameters
 // ----------------
-//	void
+//void
 //
 // Reference Parameters
 // --------------------
-// &inFile		ifstream	File pointer	
-// *file		char		file name
+// &inFile              ifstream  File pointer	
+// *file                char      File name
 // Local Variables
 // ---------------
 // void 
