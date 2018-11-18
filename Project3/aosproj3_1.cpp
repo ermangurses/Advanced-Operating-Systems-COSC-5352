@@ -108,7 +108,7 @@ int main(int argc, char *argv[]){
 // * clock1                     int  Actual Clock info
 // eventLine                 string  Entire event line that 
 //                                   is read from file
-// numberOfProcesses	     string  The number of worker
+// numberOfProcesses         string  The number of worker
 // completed                   char  The key message to check 
 //                                   operations in order
 // endString                 string  The key string check end of file
@@ -340,7 +340,6 @@ void workers(MPI_Status status, int rank, int nprocs){
                    MPI_Send(&completed,1,MPI_CHAR,0,1,MPI_COMM_WORLD);
                }
            }
-
         }else if(status.MPI_TAG == 0){
 
             // The operations are done send last snapshot to P 0
