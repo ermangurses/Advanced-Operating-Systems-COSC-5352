@@ -72,101 +72,83 @@
 //	t1           int        time by micro second 
 //	t2           int        time by micro second 
 ********************************************************************/
-void
-primefib_prog_1(char *host, int numberTh)
-{
-	CLIENT *clnt;
-	int   *result_1;
-	int   prime_1_arg = numberTh;
-	long  *result_2;
-	int   fibo_1_arg  = numberTh;
-	
+void primefib_prog_1(char *host, int numberTh){
 
-	struct timeval tim1, tim2;
-	int t1, t2;
+    CLIENT *clnt;
+    int *result_1;
+    int prime_1_arg = numberTh;
+    long *result_2;
+    int fibo_1_arg  = numberTh;
+   
+    struct timeval tim1, tim2;
+    int t1, t2;
 	
 #ifndef	DEBUG
-	clnt = clnt_create (host, PRIMEFIB_PROG, PRIMEFIB_VERSION, "udp");
-	if (clnt == NULL) {
-		clnt_pcreateerror (host);
-		exit (1);
-	}
+    clnt = clnt_create (host, PRIMEFIB_PROG, PRIMEFIB_VERSION, "udp");
+    if (clnt == NULL) {
+        clnt_pcreateerror (host);
+        exit (1);
+    }
 #endif	/* DEBUG */
 
+    // Check n th information whether is proper or not. 
+    if(numberTh > 0){
+    
+        // get current time
+        gettimeofday(&tim1, NULL);result_1 = prime_1(&prime_1_arg, clnt);
 
-	// Check n th information whether is proper or not. 
-	if(numberTh > 0)
-	{
-		// get current time
-		gettimeofday(&tim1, NULL);
+        // get current time
+        gettimeofday(&tim2, NULL);
 
-		result_1 = prime_1(&prime_1_arg, clnt);
-		
-		// get current time
-		gettimeofday(&tim2, NULL);
-	 
-	 
-		if (result_1 == (int *) NULL) {
-			clnt_perror (clnt, "call failed");
-		}
+        if (result_1 == (int *) NULL) {
+            clnt_perror (clnt, "call failed");
+        }
+    
+        // convert the time to seconds 
+        t1 = tim1.tv_usec;
+    
+        // convert the time to seconds 
+        t2 = tim2.tv_usec;
 
-		
-		// convert the time to seconds 
-		t1 = tim1.tv_usec;
-		
-		// convert the time to seconds 
-		t2 = tim2.tv_usec;
-		
-		// Print the elapsed time and the prime number
-		printf("Prime number     :%d is %d and the time taken is %d micro seconds\n",prime_1_arg,*result_1,t2-t1);
+        // Print the elapsed time and the prime number
+        printf("Prime number     :%d is %d and the time taken is %d micro seconds\n",prime_1_arg,*result_1,t2-t1);
 	
-	}
-	else
-	{
+    } else {
 		printf("There is no %dth prime number\n",numberTh);
-	}
-	
-	
-	if(numberTh >= 0)
-	{
-		// get current time
-		gettimeofday(&tim1, NULL);
+    }
 
-		result_2 = fibo_1(&fibo_1_arg, clnt);
-		
-		// get current time
-		gettimeofday(&tim2, NULL);
-		
-		if (result_2 == (long *) NULL) {
-			clnt_perror (clnt, "call failed");
-		
-		}
-			
-		// get the time as a microseconds 
-		t1 = tim1.tv_usec;
-		
-		// get the time as a microseconds 
-		t2 = tim2.tv_usec;
-		
-		
-		// Print the elapsed time and the Fibonacci number
-		printf("Fibonacci number :%d is %d and the time taken is %d micro seconds\n",fibo_1_arg,*result_2,t2-t1);
-				
-	}	
-	else
-	{
+    if(numberTh >= 0){
+        // get current time
+        gettimeofday(&tim1, NULL);
+        result_2 = fibo_1(&fibo_1_arg, clnt);
+        
+        // get current time
+        gettimeofday(&tim2, NULL);
 
-		printf("This program cannot calculate %dth fibonacci number\n",numberTh);
+        if (result_2 == (long *) NULL) {
+            clnt_perror (clnt, "call failed");
+        }
+     
+        // get the time as a microseconds
+        t1 = tim1.tv_usec;
 
-	}
+        // get the time as a microseconds 
+        t2 = tim2.tv_usec;
+
+        // Print the elapsed time and the Fibonacci number
+        printf("Fibonacci number :%d is %d and the time taken is %d micro seconds\n",fibo_1_arg,*result_2,t2-t1);
+    } else { 
+
+        printf("This program cannot calculate %dth fibonacci number\n",numberTh);
+    }
 #ifndef	DEBUG
-	clnt_destroy (clnt);
+    clnt_destroy (clnt);
 #endif	 /* DEBUG */
 }
 
 /********************************************************************
 // main  function
-// -This function calls primefib_prog_1 function
+// This function calls primefib_prog_1 function
 //
 // Return Value
 // ------------
@@ -175,28 +157,27 @@ primefib_prog_1(char *host, int numberTh)
 //
 // Value Parameters
 // ----------------
-//	argc             int number of command line argument
+//  argc    int          The number of command line argument
 //
 // Reference Parameters
 // --------------------
-//	argv[]           char array of pointer for command line 
-//                            arguments
+//  argv[]               Char array of pointer for command line 
+//                       arguments
 //
 // Local Variables
 // ---------------
-//	host             char server host
+// host                  Char server host
 //
 ********************************************************************/
 int
-main (int argc, char *argv[])
-{
-	char *host;
+main (int argc, char *argv[]){
 
-	if (argc < 2) {
-		printf ("usage: %s server_host\n", argv[0]);
-		exit (1);
-	}
-	host = argv[1];
-	primefib_prog_1 (host, atoi(argv[2]));
-exit (0);
+    char *host;
+    if (argc < 2) {
+        printf ("usage: %s server_host\n", argv[0]);
+        exit (1);
+    }
+    host = argv[1];
+    primefib_prog_1 (host, atoi(argv[2]));
+  exit (0);
 }
