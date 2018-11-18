@@ -52,8 +52,8 @@ bool openInputFile(ifstream & inFile, char * file);
 //
 // Reference Parameters
 // --------------------
-// char *argv[]  The array of pointers that keeps command line 
-//               parameters
+// char *argv[]   The array of pointers that keeps command line 
+//                parameters
 //
 // 
 // Local Variables
@@ -216,7 +216,7 @@ void manager(MPI_Status status, char * argv[],int nprocs){
 // Value Parameters
 // ----------------
 // status                MPI_status  The status information	
-// nprocs	                int  The number of processes 
+// nprocs                       int  The number of processes 
 // rank                         int  To keep process rank information
 //
 // Reference  Parameters
@@ -374,7 +374,7 @@ void workers(MPI_Status status, int rank, int nprocs){
 //
 // Reference Parameters
 // --------------------
-// &inFile    ifstream	File pointer	
+// &inFile    ifstream  File pointer	
 // *file      char      File name
 //
 // Local Variables
