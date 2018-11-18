@@ -47,12 +47,12 @@ bool openInputFile(ifstream & inFile, char * file);
 //
 // Value Parameters
 // ----------------
-// int  argc  It counts how many argument is entered 
-//            in command line  
+// int  argc      It counts how many argument is entered 
+//                in command line  
 //
 // Reference Parameters
 // --------------------
-// char *argv[]	 The array of pointers that keeps command line 
+// char *argv[]  The array of pointers that keeps command line 
 //               parameters
 //
 // 
