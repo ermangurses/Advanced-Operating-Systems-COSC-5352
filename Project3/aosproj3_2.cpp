@@ -55,9 +55,9 @@ bool openInputFile(ifstream & inFile, char * file);
 //                       line parameters 
 // Local Variables
 // ---------------
-// nprocs               int             The number of processes 
-// rank                 int             The rank Number
-// status		MPI_status      The status information	
+// nprocs                int             The number of processes 
+// rank                  int             The rank Number
+// status                MPI_status      The status information	
 //*******************************************************************
 int main(int argc, char *argv[]){
 
@@ -218,7 +218,7 @@ void manager(MPI_Status status, char * argv[],int nprocs){
                 }
                 printf(")\n");
             }					
-	}
+        }
     }
 }
 //********************************************************************
