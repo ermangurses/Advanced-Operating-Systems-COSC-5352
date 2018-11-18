@@ -289,7 +289,7 @@ void manager(MPI_Status status, char * argv[],int nprocs){
 // ----------------
 // status         MPI_status  The status information	
 // nprocs         int         The number of processes
-// rank	          int         To keep process rank information
+// rank           int         To keep process rank information
 //
 // Reference  Parameters
 // --------------------
